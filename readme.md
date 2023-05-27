@@ -61,8 +61,17 @@ Cuarto agregamos a nuestro package.json
 "type": "module",
 ```
 
+Quinto instalamos [Multer](https://www.npmjs.com/package/multer)
+
+```sh
+npm install multer
+
+```
+
+
   [Coderhouse]: <https://plataforma.coderhouse.com/cursos/43335/programacion-backend>
   [arceprogramando]: <https://github.com/arceprogramando>
   [node.js]: <http://nodejs.org>
   [express]: <http://expressjs.com>
   [Nodemon]: <https://nodemon.io>
+  [Multer]: <https://www.npmjs.com/package/multer>
