@@ -1,32 +1,28 @@
-import express from 'express' //Es Modules
-import userRouter from '../routers/user.router.js'
-import petsRouter from '../routers/pets.router.js'
+import express from 'express';
+import cartRouter from '../routers/carts.router.js';
+import productsRouter from '../routers/products.router.js';
+import { uploader } from '../middlewares/upload/utils.js';
 
-let logged = true
-const app = express()
+const app = express();
 
-// Middleware
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))//Solo es necesario cuando los datos se envian por formulario
-app.use('/contenido', express.static('public'))
+// Solo es necesario cuando los datos se envían por formulario
+app.use('/public', express.static('public'));
 
-app.get('/', (req, res) => {
-    res.send('Bienvenida')
-})
-// Middleware
-app.use(function (req, res, next) {
-    console.log('Validando login de usuario que hizo la consulta')
-    if (logged) {
-        next()
-    } else {
-        res.send('Error no estas logeado')
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api/carts', cartRouter);
+app.use('/api/products', productsRouter);
+
+app.post('/upload', uploader.single('file'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).send({ status: 'error' });
     }
-    next()
-})
+    res.send('File uploaded');
+});
 
-app.use('/users', userRouter);
-app.use('/pets', petsRouter)
+const PORT = 8080;
 
-const PORT = 8080
-
-app.listen(PORT, () => console.log(`Levantando el servidor en http://localhost:${PORT}`))
+app.listen(PORT, () => console.log(`Levantando el servidor en http://localhost:${PORT}`));

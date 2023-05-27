@@ -1,7 +1,7 @@
 {
-  "name": "preentrega-backend",
+  "name": "preentrega-backend-final",
   "version": "1.0.0",
-  "description": "[![Coderhouse](https://res.cloudinary.com/hdsqazxtw/image/upload/v1570710978/coderhouse.jpg)](https://github.com/arceprogramando)",
+  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.22"
   }
 }

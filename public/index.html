@@ -1,22 +1,39 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crear Producto</title>
 </head>
 
 <body>
-    <h1>Registra a tu mascota</h1>
-    <form action="/pets" method="post">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name">
-        <label for="type">Type</label>
-        <input type="text" id="type" name="type">
-        <input type="submit">
+    <h1>Crear Producto</h1>
+    <form action="http://localhost:8080/api/products" method="post">
+        <label for="title">Título</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="description">Descripción</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="code">Código</label>
+        <input type="text" id="code" name="code" required>
+
+        <label for="price">Precio</label>
+        <input type="number" id="price" name="price" required>
+
+        <label for="stock">Stock</label>
+        <input type="number" id="stock" name="stock" required>
+
+        <label for="category">Categoría</label>
+        <input type="text" id="category" name="category" required>
+
+        <label for="thumbnails">Imágenes</label>
+        <input type="text" id="thumbnails" name="thumbnails" required>
+
+        <input type="submit" value="Crear">
     </form>
 </body>
 
-</html>
+</html> -->
