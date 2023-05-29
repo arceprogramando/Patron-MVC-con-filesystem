@@ -11,7 +11,7 @@ function readDataFromFile() {
         return JSON.parse(data);
     } catch (error) {
         console.error('Failed reading file', error);
-        return [];
+        return { products: [] };
     }
 }
 

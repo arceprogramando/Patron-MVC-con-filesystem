@@ -1,12 +1,12 @@
 import express from 'express';
-import cartRouter from '../routers/carts.router.js';
-import productsRouter from '../routers/products.router.js';
+import cartRouter from '../routers/carts.routes.js';
+import productsRouter from '../routers/products.routes.js';
 import { uploader } from '../middlewares/upload/utils.js';
 
 const app = express();
 
 // Solo es necesario cuando los datos se envían por formulario
-app.use('/public', express.static('public'));
+app.use('/', express.static('public'));
 
 
 
