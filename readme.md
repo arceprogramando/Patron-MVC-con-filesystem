@@ -25,6 +25,7 @@ Para realizar este Ejercicio
 - [node.js] - Se uso Node Js
 - [Express] - Se uso la libreria Express de Node
 - [Nodemon] - Se instalo globalmente Nodemon
+- [Multer] - Se Practico Multer para la subida de archivos
 
 Mi repositorio publico es  [arceprogramando][arceprogramando]
 en github.
@@ -66,6 +67,28 @@ Quinto instalamos [Multer](https://www.npmjs.com/package/multer)
 ```sh
 npm install multer
 
+```
+
+```sh
+- Files
+  - carts.json
+  - product.json
+- middlewares
+  - upload
+    - utils.js
+- node_modules(IGNORADO CON EL .GITIGNORE)
+- public
+  - index.html
+  - style.css
+- routers
+  - carts.routes.js
+  - products.routes.js
+- src
+  - index.js
+- .gitignore
+- package-lock.json
+- package.json
+- readme.md
 ```
 
 
