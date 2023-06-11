@@ -1,30 +1,44 @@
 [
 	{
 		"id": 1,
-		"title": "Remera",
-		"description": "Camiseta de algodón",
-		"code": "TS001",
+		"title": "Producto Nuevo",
+		"description": "Descripción del producto de ejemplo",
+		"code": "ABC123",
 		"price": 19.99,
 		"status": true,
 		"stock": 10,
-		"category": "Ropa",
+		"category": "Electrónica",
 		"thumbnails": [
-			"https://example.com/thumbnail1.jpg",
-			"https://example.com/thumbnail2.jpg"
+			"ruta-imagen1.jpg",
+			"ruta-imagen2.jpg"
 		]
 	},
 	{
 		"id": 2,
-		"title": "Remera",
-		"description": "Camiseta de algodón",
-		"code": "TS001",
+		"title": "Producto de ejemplo",
+		"description": "Descripción del producto de ejemplo",
+		"code": "ABC123",
 		"price": 19.99,
 		"status": true,
 		"stock": 10,
-		"category": "Ropa",
+		"category": "Electrónica",
 		"thumbnails": [
-			"https://example.com/thumbnail1.jpg",
-			"https://example.com/thumbnail2.jpg"
+			"ruta-imagen1.jpg",
+			"ruta-imagen2.jpg"
+		]
+	},
+	{
+		"id": 3,
+		"title": "Producto de ejemplo",
+		"description": "Descripción del producto de ejemplo",
+		"code": "ABC123",
+		"price": 19.99,
+		"status": true,
+		"stock": 10,
+		"category": "Electrónica",
+		"thumbnails": [
+			"ruta-imagen1.jpg",
+			"ruta-imagen2.jpg"
 		]
 	}
 ]

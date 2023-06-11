@@ -5,41 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Prueba</title>
+    <title>Router y Multer</title>
 </head>
 
 <body>
-    <form action="/api/products" method="POST">
-        <label for="id">ID:</label>
-        <input type="number" id="id" name="id" required><br>
+    <h1>Router y Multer</h1>
+    <div>
+        <p>Mis endpoints api son </p>
 
-        <label for="title">Título:</label>
-        <input type="text" id="title" name="title" required><br>
+        <p>Products: <a href="http://localhost:8080/api/products">products</a></p>
+        <p>Carts: <a href="http://localhost:8080/api/carts">carts</a></p>
 
-        <label for="description">Descripción:</label>
-        <textarea id="description" name="description" required></textarea><br>
-
-        <label for="code">Código:</label>
-        <input type="text" id="code" name="code" required><br>
-
-        <label for="price">Precio:</label>
-        <input type="number" id="price" name="price" step="0.01" required><br>
-
-        <label for="status">Estado:</label>
-        <input type="checkbox" id="status" name="status" checked><br>
-
-        <label for="stock">Stock:</label>
-        <input type="number" id="stock" name="stock" required><br>
-
-        <label for="category">Categoría:</label>
-        <input type="text" id="category" name="category" required><br>
-
-        <label for="thumbnails">Miniaturas:</label>
-        <input type="text" id="thumbnails" name="thumbnails" required><br>
-
-        <button type="submit">Enviar</button>
-    </form>
+    </div>
 </body>
 
 </html>
