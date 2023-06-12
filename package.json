@@ -10,7 +10,7 @@
     "dev": "nodemon src/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Felipe Arce",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
