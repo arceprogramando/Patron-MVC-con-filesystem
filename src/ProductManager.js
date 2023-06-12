@@ -32,6 +32,16 @@ class ProductManager {
     }
 
     // Escritura Product
+    async generateProductId() {
+        try {
+            const products = await this.getProducts();
+            const nextProductId = products.length > 0 ? products.length + 1 : 1;
+            return nextProductId;
+        } catch (error) {
+            throw new Error('Error al generar el ID del producto');
+        }
+    }
+
     async writeProduct(product) {
         try {
             const nextProductId = await this.generateProductId();
@@ -47,15 +57,7 @@ class ProductManager {
         }
     }
 
-    async generateProductId() {
-        try {
-            const products = await this.getProducts();
-            const nextProductId = products.length > 0 ? products.length + 1 : 1;
-            return nextProductId;
-        } catch (error) {
-            throw new Error('Error al generar el ID del producto');
-        }
-    }
+
     async updateProduct(pid, updatedFields) {
         try {
             const products = await this.getProducts();
@@ -94,29 +96,6 @@ class ProductManager {
         }
     }
 
-    // Lectura Carts
-
-    async getCarts() {
-        try {
-            const data = await fs.readFile(this.filePath, 'utf-8');
-            const products = JSON.parse(data)
-            return products
-        } catch (error) {
-            throw new Error('Error al obtener las carts')
-        }
-    }
-
-    async getCartsById(cid) {
-        try {
-            const data = await fs.readFile(this.filePath, 'utf-8');
-            console.log(data); // Agrega esta línea para verificar la data
-            const carts = JSON.parse(data);
-            const cart = carts.find((c) => (c.id) === parseInt(cid));
-            return cart;
-        } catch (error) {
-            throw new Error('Error al obtener la Cart');
-        }
-    }
 
 }
 
