@@ -17,19 +17,4 @@ class ProductController {
   };
 }
 
-// router.get('/', async (req, res) => {
-//   try {
-//     const { limit } = req.query;
-//     const products = await productManager.getProducts();
-//     if (limit) {
-//       const limitedProducts = products.slice(0, limit);
-//       res.status(200).json(limitedProducts);
-//     } else {
-//       res.status(200).json(products);
-//     }
-//   } catch (error) {
-//     res.status(500).json({ error: 'Error al obtener los productos' });
-//   }
-// });
-
 export default ProductController;
