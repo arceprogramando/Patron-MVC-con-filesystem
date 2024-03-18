@@ -1,4 +1,4 @@
 node_modules
 .vscode
-upload/*                  # Ignora todos los archivos dentro de la carpeta "upload"
-!upload/.gitkeep          # Excepto el archivo ".gitkeep" dentro de la carpeta "upload"
+**/upload/    
+!**upload/.gitkeep 
