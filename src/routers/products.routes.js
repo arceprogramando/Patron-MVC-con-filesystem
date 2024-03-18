@@ -1,24 +1,13 @@
 import { Router } from 'express';
 import ProductManager from '../ProductManager.js';
+import ProductController from '../controllers/product.controller.js';
 
 const router = Router();
-
 const productManager = new ProductManager('./files/products.json');
 
-router.get('/', async (req, res) => {
-  try {
-    const { limit } = req.query;
-    const products = await productManager.getProducts();
-    if (limit) {
-      const limitedProducts = products.slice(0, limit);
-      res.status(200).json(limitedProducts);
-    } else {
-      res.status(200).json(products);
-    }
-  } catch (error) {
-    res.status(500).json({ error: 'Error al obtener los productos' });
-  }
-});
+const productController = new ProductController();
+
+router.get('/', productController.getAllProducts);
 
 router.get('/:pid', async (req, res) => {
   try {
