@@ -11,6 +11,7 @@
   },
   "rules": {
     "import/extensions": ["error", "always"],
-    "no-console": "off"
+    "no-console": "off",
+    "object-curly-newline": "off"
   }
 }
