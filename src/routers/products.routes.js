@@ -9,21 +9,6 @@ const productController = new ProductController();
 
 router.get('/', productController.getAllProducts);
 
-router.get('/:pid', async (req, res) => {
-  try {
-    const { pid } = req.params;
-    const product = await productManager.getProductById(pid);
-
-    if (product) {
-      res.status(200).json(product);
-    } else {
-      res.status(404).json({ error: 'El producto no existe' });
-    }
-  } catch (error) {
-    res.status(500).json({ error: 'Error al obtener el producto con el id solicitado' });
-  }
-});
-
 router.post('/', async (req, res) => {
   try {
     const { title, description, code, price, stock, category, thumbnails } = req.body;
