@@ -15,6 +15,21 @@ class ProductDao {
     }
   }
 
+  async createProduct(product) {
+    try {
+      const nextProductId = await this.generateProductId();
+      const products = await this.getAllProducts();
+
+      const updatedProduct = { id: nextProductId, ...product };
+      const updatedProducts = [...products, updatedProduct];
+
+      await fs.writeFile(this.filePath, JSON.stringify(updatedProducts, null, '\t'));
+      return updatedProduct;
+    } catch (error) {
+      throw new Error();
+    }
+  }
+
   async getProductById(pid) {
     try {
       const data = await fs.readFile(this.filePath, 'utf-8');
@@ -28,26 +43,11 @@ class ProductDao {
 
   async generateProductId() {
     try {
-      const products = await this.getProducts();
+      const products = await this.getAllProducts();
       const nextProductId = products.length > 0 ? products.length + 1 : 1;
       return nextProductId;
     } catch (error) {
       throw new Error('Error al generar el ID del producto');
-    }
-  }
-
-  async writeProduct(product) {
-    try {
-      const nextProductId = await this.generateProductId();
-      const products = await this.getProducts();
-
-      const updatedProduct = { id: nextProductId, ...product };
-      const updatedProducts = [...products, updatedProduct];
-
-      await fs.writeFile(this.filePath, JSON.stringify(updatedProducts, null, '\t'));
-      return updatedProduct;
-    } catch (error) {
-      throw new Error('Error al escribir el producto');
     }
   }
 

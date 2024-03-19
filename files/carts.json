@@ -36,5 +36,16 @@
 				"quantity": 3
 			}
 		]
+	},
+	{
+		"id": 3,
+		"title": "Camisa de algodón2",
+		"description": "Camisa de manga larga, ideal para el día a día",
+		"code": "ABC123",
+		"price": 29.99,
+		"status": true,
+		"stock": 50,
+		"category": "Ropa",
+		"thumbnails": []
 	}
 ]

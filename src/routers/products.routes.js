@@ -9,31 +9,7 @@ const productController = new ProductController();
 
 router.get('/', productController.getAllProducts);
 
-router.post('/', async (req, res) => {
-  try {
-    const { title, description, code, price, stock, category, thumbnails } = req.body;
-
-    if (!title || !description || !code || !price || !stock || !category) {
-      return res.status(400).json({ error: 'Todos los campos obligatorios deben ser proporcionados' });
-    }
-
-    const product = {
-      title,
-      description,
-      code,
-      price,
-      status: true,
-      stock,
-      category,
-      thumbnails: thumbnails || [],
-    };
-
-    const newProduct = await productManager.writeProduct(product);
-    return res.status(201).json({ status: 'success', product: newProduct });
-  } catch (error) {
-    return res.status(500).json({ error: 'Error al agregar el producto' });
-  }
-});
+router.post('/', productController.createProduct);
 
 router.put('/:pid', async (req, res) => {
   try {
