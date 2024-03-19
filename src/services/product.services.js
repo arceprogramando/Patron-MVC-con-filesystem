@@ -1,6 +1,6 @@
 import ProductDao from '../dao/product.dao.js';
 
-const filePath = './files/carts.json';
+const filePath = './files/products.json';
 
 class ProductService {
   constructor() {

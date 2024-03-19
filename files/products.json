@@ -40,5 +40,16 @@
 			"ruta-imagen1.jpg",
 			"ruta-imagen2.jpg"
 		]
+	},
+	{
+		"id": 4,
+		"title": "Camisa de algodón2",
+		"description": "Camisa de manga larga, ideal para el día a día",
+		"code": "ABC123",
+		"price": 29.99,
+		"status": true,
+		"stock": 50,
+		"category": "Ropa",
+		"thumbnails": []
 	}
 ]
