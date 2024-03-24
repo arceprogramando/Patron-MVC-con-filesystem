@@ -16,12 +16,30 @@ class ProductService {
     }
   };
 
+  getProductById = async (pId) => {
+    try {
+      const getProductById = await this.productDao.getProductById(pId);
+      return getProductById;
+    } catch (error) {
+      throw new Error(`Error al buscar todos los productos en el service ${error.message}`);
+    }
+  };
+
   createProduct = async (product) => {
     try {
       const createProduct = await this.productDao.createProduct(product);
       return createProduct;
     } catch (error) {
       throw new Error(`Error al crear un producto: ${error.message}`);
+    }
+  };
+
+  updateProduct = async (pId, product) => {
+    try {
+      const updateProduct = await this.productDao.updateProduct(pId, product);
+      return updateProduct;
+    } catch (error) {
+      throw new Error(`Error al actualizar el producto en el service ${error.message}`);
     }
   };
 }

@@ -29,13 +29,13 @@
 	},
 	{
 		"id": 3,
-		"title": "Producto de ejemplo",
-		"description": "Descripción del producto de ejemplo",
+		"title": "Producto usando put",
+		"description": "Camisa de manga larga, ideal para el día a día",
 		"code": "ABC123",
-		"price": 19.99,
+		"price": 29.99,
 		"status": true,
-		"stock": 10,
-		"category": "Electrónica",
+		"stock": 50,
+		"category": "Ropa",
 		"thumbnails": [
 			"ruta-imagen1.jpg",
 			"ruta-imagen2.jpg"
