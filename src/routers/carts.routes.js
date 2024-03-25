@@ -12,28 +12,7 @@ router.get('/', cartController.getAllCarts);
 
 router.get('/:cId', cartController.getCartsById);
 
-router.post('/', async (req, res) => {
-  try {
-    const { products } = req.body;
-
-    if (!Array.isArray(products)) {
-      return res.status(400).json({ error: 'La lista de productos debe ser un array' });
-    }
-
-    const newCartId = await cartManager.generateCartId();
-
-    const newCart = {
-      id: newCartId,
-      products,
-    };
-
-    const createdCart = await cartManager.writeCart(newCart);
-
-    return res.status(201).json({ status: 'success', cart: createdCart });
-  } catch (error) {
-    return res.status(500).json({ error: 'Error al crear el carrito' });
-  }
-});
+router.post('/', cartController.createCart);
 
 router.post('/:cid/product/:pid', async (req, res) => {
   try {

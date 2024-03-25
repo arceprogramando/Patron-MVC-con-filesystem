@@ -24,5 +24,23 @@ class CartService {
       throw new Error(`Error al buscar las carts con id ${cId} en el service: ${error.message}`);
     }
   };
+
+  generateCartId = async () => {
+    try {
+      const generateCartId = await this.cartDao.generateCartId();
+      return generateCartId;
+    } catch (error) {
+      throw new Error(`Error al generar la nueva  id  en el service: ${error.message}`);
+    }
+  };
+
+  createCart = async (cart) => {
+    try {
+      const createCart = await this.cartDao.createCart(cart);
+      return createCart;
+    } catch (error) {
+      throw new Error(`Error al crear la cart  en el service: ${error.message}`);
+    }
+  };
 }
 export default CartService;

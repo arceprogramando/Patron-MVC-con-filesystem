@@ -30,6 +30,29 @@ class CartController {
       return res.status(500).json({ error: 'Error al obtener la cart' });
     }
   };
+
+  createCart = async (req, res) => {
+    try {
+      const products = req.body;
+
+      if (!Array.isArray(products)) return res.status(400).json({ error: 'La lista de productos debe ser un array' });
+
+      const newCartId = await this.cartService.generateCartId();
+      console.log('🚀 ~ CartController ~ createCart= ~ newCartId:', newCartId);
+
+      const newCart = {
+        id: newCartId,
+        products,
+      };
+      console.log('🚀 ~ CartController ~ createCart= ~ newCart:', newCart);
+
+      const createdCart = await this.cartService.createCart(newCart);
+
+      return res.status(201).json({ status: 'success', cart: createdCart });
+    } catch (error) {
+      return res.status(500).json({ error: 'Error al crear el carrito' });
+    }
+  };
 }
 
 export default CartController;

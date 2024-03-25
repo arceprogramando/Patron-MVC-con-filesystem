@@ -26,9 +26,9 @@ class CartManager {
     }
   }
 
-  async generateCartById() {
+  async generateCartId() {
     try {
-      const carts = await this.getCarts();
+      const carts = await this.getAllCarts();
       const NextCartId = carts.length > 0 ? carts.length + 1 : 1;
       return NextCartId;
     } catch (error) {
@@ -38,8 +38,8 @@ class CartManager {
 
   async createCart(cart) {
     try {
-      const NextCartId = await this.generateCartById();
-      const carts = await this.getCarts();
+      const NextCartId = await this.generateCartId();
+      const carts = await this.getAllCarts();
 
       const updatedCart = {
         id: NextCartId,
