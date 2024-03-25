@@ -10,20 +10,7 @@ const router = Router();
 
 router.get('/', cartController.getAllCarts);
 
-router.get('/:cid', async (req, res) => {
-  try {
-    const { cid } = req.params;
-    const cart = await cartManager.getCartsById(cid);
-    console.log(cart);
-    if (cart) {
-      res.status(200).json(cart);
-    } else {
-      res.status(404).json({ error: 'La Busqueda del id de la cart no existe' });
-    }
-  } catch (error) {
-    res.status(500).json({ error: 'Error al obtener la cart' });
-  }
-});
+router.get('/:cId', cartController.getCartsById);
 
 router.post('/', async (req, res) => {
   try {
