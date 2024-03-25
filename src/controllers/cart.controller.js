@@ -53,6 +53,19 @@ class CartController {
       return res.status(500).json({ error: 'Error al crear el carrito' });
     }
   };
+
+  addQuantityProductInCart = async (req, res) => {
+    try {
+      const { cId, pId } = req.params;
+      const { quantity } = req.body;
+
+      const updatedCart = await this.cartService.addQuantityProductInCart(cId, pId, quantity);
+
+      res.status(200).json(updatedCart);
+    } catch (error) {
+      res.status(500).json({ error: `Error al actualizar el carrito ${error.message}` });
+    }
+  };
 }
 
 export default CartController;

@@ -55,19 +55,19 @@ class CartManager {
     }
   }
 
-  async updateCart(cartId, productId, quantity) {
+  async addQuantityProductInCart(cId, pId, quantity) {
     try {
-      const carts = await this.getCarts();
-      const cart = carts.find((c) => c.id === Number(cartId));
+      const carts = await this.getAllCarts();
+      const cart = carts.find((c) => c.id === Number(cId));
 
       if (!cart) throw new Error('Carrito no encontrado');
 
-      const existingProduct = cart.products.find((p) => p.product === productId);
+      const existingProduct = cart.products.find((p) => p.product === pId);
 
       if (existingProduct) {
         existingProduct.quantity += quantity;
       } else {
-        cart.products.push({ product: productId, quantity });
+        cart.products.push({ product: pId, quantity });
       }
 
       await fs.writeFile(this.filePath, JSON.stringify(carts, null, '\t'));

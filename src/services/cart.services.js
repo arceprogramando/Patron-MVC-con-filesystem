@@ -42,5 +42,14 @@ class CartService {
       throw new Error(`Error al crear la cart  en el service: ${error.message}`);
     }
   };
+
+  addQuantityProductInCart = async (cId, pId, quantity) => {
+    try {
+      const addQuantity = await this.cartDao.addQuantityProductInCart(cId, pId, quantity);
+      return addQuantity;
+    } catch (error) {
+      throw new Error(`Error al crear la crear el tipo de producto ${pId} en la cart ${cId} en el service: ${error.message}`);
+    }
+  };
 }
 export default CartService;
