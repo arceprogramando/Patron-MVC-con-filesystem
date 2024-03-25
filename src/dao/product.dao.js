@@ -72,10 +72,10 @@ class ProductDao {
     }
   }
 
-  async deleteProduct(pid) {
+  async deleteProduct(pId) {
     try {
-      const products = await this.getProducts();
-      const index = products.findIndex((p) => p.id === Number(pid));
+      const products = await this.getAllProducts();
+      const index = products.findIndex((p) => p.id === Number(pId));
 
       if (index === -1) {
         throw new Error('El producto no existe');

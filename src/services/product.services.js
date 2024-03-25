@@ -42,5 +42,14 @@ class ProductService {
       throw new Error(`Error al actualizar el producto en el service ${error.message}`);
     }
   };
+
+  deleteProduct = async (pId) => {
+    try {
+      const deleteProduct = await this.productDao.deleteProduct(pId);
+      return deleteProduct;
+    } catch (error) {
+      throw new Error(`Error al eliminar el producto en el service ${error.message}}`);
+    }
+  };
 }
 export default ProductService;

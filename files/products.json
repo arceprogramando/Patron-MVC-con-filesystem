@@ -14,20 +14,6 @@
 		]
 	},
 	{
-		"id": 2,
-		"title": "Producto de ejemplo",
-		"description": "Descripción del producto de ejemplo",
-		"code": "ABC123",
-		"price": 19.99,
-		"status": true,
-		"stock": 10,
-		"category": "Electrónica",
-		"thumbnails": [
-			"ruta-imagen1.jpg",
-			"ruta-imagen2.jpg"
-		]
-	},
-	{
 		"id": 3,
 		"title": "Producto usando put",
 		"description": "Camisa de manga larga, ideal para el día a día",
@@ -40,16 +26,5 @@
 			"ruta-imagen1.jpg",
 			"ruta-imagen2.jpg"
 		]
-	},
-	{
-		"id": 4,
-		"title": "Camisa de algodón2",
-		"description": "Camisa de manga larga, ideal para el día a día",
-		"code": "ABC123",
-		"price": 29.99,
-		"status": true,
-		"stock": 50,
-		"category": "Ropa",
-		"thumbnails": []
 	}
 ]
