@@ -44,7 +44,6 @@ class CartController {
         id: newCartId,
         products,
       };
-      console.log('🚀 ~ CartController ~ createCart= ~ newCart:', newCart);
 
       const createdCart = await this.cartService.createCart(newCart);
 
