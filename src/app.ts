@@ -1,9 +1,9 @@
 import express from 'express';
 import path from 'path';
-import productsRouter from './routers/products.routes.js';
-import cartsRouter from './routers/carts.routes.js';
-import __dirname from './utils.js';
-import uploadImageRouter from './services/uploader.js';
+import productsRouter from './routers/products.routes';
+import cartsRouter from './routers/carts.routes';
+import __dirname from './utils';
+import uploadImageRouter from './services/uploader';
 
 const app = express();
 app.use(express.json());

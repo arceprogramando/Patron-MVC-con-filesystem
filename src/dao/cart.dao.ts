@@ -1,7 +1,10 @@
 import fs from 'fs/promises';
 
+type filePath = string;
+
 class CartManager {
-  constructor(filePath) {
+  filePath: string;
+  constructor(filePath: filePath) {
     this.filePath = filePath;
   }
 
@@ -15,11 +18,11 @@ class CartManager {
     }
   }
 
-  async getCartsById(cId) {
+  async getCartsById(cId: string) {
     try {
       const data = await fs.readFile(this.filePath, 'utf-8');
       const carts = JSON.parse(data);
-      const cart = carts.find((c) => c.id === Number(cId));
+      const cart = carts.find((c: { id: number }) => c.id === Number(cId));
       return cart;
     } catch (error) {
       throw new Error('Error al obtener la Cart');
@@ -36,7 +39,7 @@ class CartManager {
     }
   }
 
-  async createCart(cart) {
+  async createCart(cart: any) {
     try {
       const NextCartId = await this.generateCartId();
       const carts = await this.getAllCarts();
@@ -51,18 +54,18 @@ class CartManager {
 
       return updatedCart;
     } catch (error) {
-      return error.message;
+      throw new Error('Error al actualizar el carrito');
     }
   }
 
-  async addQuantityProductInCart(cId, pId, quantity) {
+  async addQuantityProductInCart(cId: string, pId: string, quantity: number) {
     try {
       const carts = await this.getAllCarts();
-      const cart = carts.find((c) => c.id === Number(cId));
+      const cart = carts.find((c: { id: number }) => c.id === Number(cId));
 
       if (!cart) throw new Error('Carrito no encontrado');
 
-      const existingProduct = cart.products.find((p) => p.product === pId);
+      const existingProduct = cart.products.find((p: { product: string; id: number }) => p.product === pId);
 
       if (existingProduct) {
         existingProduct.quantity += quantity;

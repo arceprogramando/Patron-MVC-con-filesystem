@@ -1,6 +1,6 @@
 import multer from 'multer';
 import path from 'path';
-import __dirname from '../utils.js';
+import __dirname from '../utils';
 
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => {
@@ -20,8 +20,7 @@ const uploadMiddleware = multer({
     const mimeTypes = fileTypes.test(file.mimetype);
     const extname = fileTypes.test(path.extname(file.originalname));
 
-    if (!(mimeTypes && extname)) return cb('Error el archivo no es una imagen');
-
+    if (!(mimeTypes && extname)) return cb(new Error('Solo se permiten imagenes'));
     return cb(null, true);
   },
 }).single('image');

@@ -1,11 +1,13 @@
-import CartService from '../services/cart.services.js';
+import { Request,Response } from 'express';
+import CartService from '../services/cart.services';
 
 class CartController {
+  cartService: CartService;
   constructor() {
     this.cartService = new CartService();
   }
 
-  getAllCarts = async (req, res) => {
+  getAllCarts = async (req:Request, res:Response) => {
     try {
       const { limit } = req.query;
       const products = await this.cartService.getCarts();
@@ -15,11 +17,11 @@ class CartController {
       }
       return res.status(200).json(products);
     } catch (error) {
-      return res.status(500).json({ error: error.message });
+      return res.status(500).json({ error: (error as Error).message });
     }
   };
 
-  getCartsById = async (req, res) => {
+  getCartsById = async (req:Request, res:Response) => {
     try {
       const { cId } = req.params;
       const cart = await this.cartService.getCartsById(cId);
@@ -31,7 +33,7 @@ class CartController {
     }
   };
 
-  createCart = async (req, res) => {
+  createCart = async (req:Request, res:Response) => {
     try {
       const products = req.body;
 
@@ -53,7 +55,7 @@ class CartController {
     }
   };
 
-  addQuantityProductInCart = async (req, res) => {
+  addQuantityProductInCart = async (req:Request, res:Response) => {
     try {
       const { cId, pId } = req.params;
       const { quantity } = req.body;
@@ -62,7 +64,7 @@ class CartController {
 
       res.status(200).json(updatedCart);
     } catch (error) {
-      res.status(500).json({ error: `Error al actualizar el carrito ${error.message}` });
+      res.status(500).json({ error: `Error al actualizar el carrito ${(error as Error).message}` });
     }
   };
 }

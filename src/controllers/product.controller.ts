@@ -1,22 +1,24 @@
-import ProductService from '../services/product.services.js';
+import { Request, Response } from 'express';
+import ProductService from '../services/product.services';
 
 class ProductController {
+  productService: ProductService;
   constructor() {
     this.productService = new ProductService();
   }
 
-  getAllProducts = async (req, res) => {
+  getAllProducts = async (req: Request, res: Response) => {
     try {
       const { limit } = req.query;
       const products = await this.productService.getAllProducts();
       if (limit) return res.json({ products: products.slice(0, Number(limit)) });
       return res.json({ products });
     } catch (error) {
-      return res.status(404).json({ error: error.message });
+      return res.status(404).json({ error: (error as Error).message });
     }
   };
 
-  getProductById = async (req, res) => {
+  getProductById = async (req: Request, res: Response) => {
     try {
       const { pId } = req.params;
       const getProductById = await this.productService.getProductById(pId);
@@ -25,11 +27,11 @@ class ProductController {
 
       return res.json({ product: getProductById });
     } catch (error) {
-      return res.status(404).json({ error: error.message });
+      return res.status(404).json({ error: (error as Error).message });
     }
   };
 
-  createProduct = async (req, res) => {
+  createProduct = async (req: Request, res: Response) => {
     try {
       const { title, description, code, price, stock, category, thumbnails } = req.body;
 
@@ -59,11 +61,11 @@ class ProductController {
       const newProduct = await this.productService.createProduct(product);
       return res.status(201).json({ status: 'success', product: newProduct });
     } catch (error) {
-      return res.status(500).json({ error: 'Error al agregar el producto', message: error.message });
+      return res.status(500).json({ error: 'Error al agregar el producto', message: (error as Error).message });
     }
   };
 
-  updateProduct = async (req, res) => {
+  updateProduct = async (req: Request, res: Response) => {
     try {
       const { pId } = req.params;
       const { title, description, code, price, stock, category, thumbnails } = req.body;
@@ -73,7 +75,6 @@ class ProductController {
       }
 
       const product = await this.productService.getProductById(pId);
-      console.log('🚀 ~ ProductController ~ updateProduct= ~ product:', product);
 
       if (!product) {
         return res.status(404).json({ error: 'El producto no existe' });
@@ -93,11 +94,11 @@ class ProductController {
       const updatedProduct = await this.productService.updateProduct(pId, updatedProductData);
       return res.status(200).json({ status: 'success', product: updatedProduct });
     } catch (error) {
-      return res.status(500).json({ error: 'No se pudo actualizar el producto', message: error.message });
+      return res.status(500).json({ error: 'No se pudo actualizar el producto', message: (error as Error).message });
     }
   };
 
-  deleteProduct = async (req, res) => {
+  deleteProduct = async (req: Request, res: Response) => {
     try {
       const { pId } = req.params;
       const product = await this.productService.getProductById(pId);
@@ -107,7 +108,7 @@ class ProductController {
       await this.productService.deleteProduct(pId);
       return res.status(200).json({ status: 'success', message: `El producto con id ${pId} ha sido eliminado` });
     } catch (error) {
-      return res.status(500).json({ error: 'No se puedo eliminar el producto', message: error.message });
+      return res.status(500).json({ error: 'No se pudo Eliminar el producto', message: (error as Error).message });
     }
   };
 }

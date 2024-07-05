@@ -1,7 +1,17 @@
 import fs from 'fs/promises';
 
+type UpdatedProductFields = {
+  title: string;
+  description: string;
+  code: string;
+  price: number;
+  stock: number;
+  category: string;
+  thumbnails: string[];
+};
+
 class ProductDao {
-  constructor(filePath) {
+  constructor(filePath: string) {
     this.filePath = filePath;
   }
 
@@ -15,7 +25,7 @@ class ProductDao {
     }
   }
 
-  async createProduct(product) {
+  async createProduct(product: any) {
     try {
       const nextProductId = await this.generateProductId();
       const products = await this.getAllProducts();
@@ -30,10 +40,10 @@ class ProductDao {
     }
   }
 
-  async getProductById(pId) {
+  async getProductById(pId: string) {
     try {
       const products = await this.getAllProducts();
-      const product = products.find((p) => p.id === Number(pId));
+      const product = products.find((p: { id: number }) => p.id === Number(pId));
       return product;
     } catch (error) {
       throw new Error('Error al obtener el producto.');
@@ -50,10 +60,10 @@ class ProductDao {
     }
   }
 
-  async updateProduct(pid, updatedFields) {
+  async updateProduct(pid: string, updatedFields: UpdatedProductFields) {
     try {
       const products = await this.getAllProducts();
-      const index = products.findIndex((p) => p.id === Number(pid));
+      const index = products.findIndex((p: { id: number }) => p.id === Number(pid));
 
       if (index === -1) {
         throw new Error('El producto no existe');
@@ -71,11 +81,12 @@ class ProductDao {
       throw new Error('Error al actualizar el producto');
     }
   }
+  private filePath: string;
 
-  async deleteProduct(pId) {
+  async deleteProduct(pId: string) {
     try {
       const products = await this.getAllProducts();
-      const index = products.findIndex((p) => p.id === Number(pId));
+      const index = products.findIndex((p: { id: number }) => p.id === Number(pId));
 
       if (index === -1) {
         throw new Error('El producto no existe');
