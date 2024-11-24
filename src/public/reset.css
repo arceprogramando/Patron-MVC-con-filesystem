@@ -1,0 +1,42 @@
+* {
+  min-width: 0;
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg{
+    display:block;
+    height:auto;
+    max-width:100%
+}
+
+img{
+  height:auto;
+  font-style:italic;
+  background-repeat:no-repeat;
+  background-size:cover;
+  shape-margin:0.75rem;
+}
+body{
+    margin:0;
+    min-height:100dvh;
+}
+
+h1,h2,h3,h4,h4{
+  text-wrap: balance;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+a{
+  text-decoration: none;
+}

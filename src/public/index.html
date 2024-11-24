@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Router y Multer</title>
-</head>
+  </head>
 
-<body>
-    <h1>Router y Multer</h1>
-    <div>
-        <p>Mis endpoints api son </p>
+  <body>
+    <h1 class="text-center bg-black text-white">Router y Multer</h1>
 
-        <p>Products: <a href="http://localhost:8080/api/products">products</a></p>
-        <p>Carts: <a href="http://localhost:8080/api/carts">carts</a></p>
+    <div class="container">
+      <p class="text-center">Esta es una api de prueba para practicar Router y Multer</p>
+      <div class="flex flex-wrap child-max-w-sm justify-center">
+        <p class="text-center">Router: Routes es el modulo interno de express que nos permite crear rutas para nuestra api</p>
+        <p class="text-center">Multer: Multer es un modulo externo de express que nos permite subir archivos a nuestro servidor</p>
+      </div>
 
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <input type="file" name="image">
-            <button type="submit">Upload</button>
-        </form>
+      <p class="text-center font-2xl">Mis endpoints api son:</p>
 
+      <div class="flex flex-wrap child-max-w-sm justify-center gap-4">
+        <div>
+          <p>Productos: <a href="http://localhost:8080/api/products">productos</a></p>
+        </div>
+        <div>
+          <p>Carritos: <a href="http://localhost:8080/api/carts">carritos</a></p>
+        </div>
+      </div>
+
+      <p class="text-center">Tambien puedes subir una imagen a la api para probar el uploader:</p>
+
+      <form method="post" action="/upload" enctype="multipart/form-data">
+        <div>
+          <label for="image">Elige imágenes para subir (PNG, JPG)</label>
+          <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png .PNG .JPG .JPEG" multiple />
+        </div>
+        <div>
+          <button type="submit" class="p-4 my-4">Subir Imagen</button>
+        </div>
+      </form>
     </div>
-</body>
-
+  </body>
 </html>
+|

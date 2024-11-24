@@ -1,0 +1,141 @@
+.bg-black {
+  background-color: black;
+}
+
+.text-white {
+  color: white;
+}
+
+h1 {
+  font-size: 2rem;
+  padding-block: 1rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+.font-2xl {
+  font-size: 1.5rem;
+}
+
+.flex{
+    display:flex;
+}
+
+.flex-wrap{
+    flex-wrap:wrap;
+}
+
+.child-max-w-sm > p {
+  max-width: 300px;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.gap-4{
+    gap: 1rem;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.custom-file{
+    display: flex;
+}
+
+.custom-file::file-selector-button {
+  content: "Seleccionar archivo";
+  background: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-file::before {
+  content: "";
+  color: #666;
+  margin-left: 5p
+}
+
+.custom-file::after{
+    content: "";
+}
+
+/* Formulario de upload de imagenes */
+
+
+form {
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+form ol {
+  padding-left: 0;
+}
+
+form li,
+div > p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+form img {
+  height: 64px;
+  order: 1;
+}
+
+form p {
+  line-height: 32px;
+  padding-left: 10px;
+}
+
+form label,
+form button {
+  background-color: #7f9ccb;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px ridge black;
+  font-size: 0.8rem;
+  height: auto;
+}
+
+form label:hover,
+form button:hover {
+  background-color: #2d5ba3;
+  color: white;
+}
+
+form label:active,
+form button:active {
+  background-color: #0d3f8f;
+  color: white;
+}
+
+.p-4{
+  padding: 1rem;
+}
+
+.my-4{
+  margin-block: 2rem;
+}

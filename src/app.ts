@@ -10,11 +10,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const PORT = 8080;
-app.listen(PORT, () => console.log(`Levantando el servidor en \n "http://localhost:${PORT}/api"`));
+app.listen(PORT, () => console.log(`"http://localhost:${PORT}/"`));
 
 const viewRouter = express.static(path.join(__dirname, 'public'));
 
 app.use('/upload', uploadImageRouter);
-app.use('/api', viewRouter);
+app.use('/', viewRouter);
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
